@@ -1,0 +1,44 @@
+{% comment %}
+    - id
+    - type
+        - *info
+        - success
+        - warning
+        - danger
+    - heading
+    - text
+{% endcomment%} 
+
+{% var type=type|default:"info" %}
+
+{% if type == "info" %}
+    {% var class="text-blue-600 bg-blue-200 border-blue-300" %}
+    {% var svg="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" %}
+{% elif type == "success" %}
+    {% var class="text-green-600 bg-green-200 border-green-300" %}
+    {% var svg="M4.5 12.75l6 6 9-13.5" %}
+{% elif type == "warning" %}
+    {% var class="text-orange-600 bg-orange-200 border-orange-300" %}
+    {% var svg="M2.25 12.76c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.076-4.076a1.526 1.526 0 011.037-.443 48.282 48.282 0 005.68-.494c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" %}
+{% elif type == "danger" %}
+    {% var class="text-red-600 bg-red-200 border-red-300" %}
+    {% var svg="M12 9v3.75m0-10.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.75c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.57-.598-3.75h-.152c-3.196 0-6.1-1.249-8.25-3.286zm0 13.036h.008v.008H12v-.008z" %}
+{% endif %}
+
+<section {% attrs id %}
+         class="m-1 border px-4 py-2 rounded relative appear {{ class }}"
+         role="alert">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="inline w-6 h-6 ">
+        <path stroke-linecap="round" stroke-linejoin="round" d="{{svg}}"/>
+    </svg>
+    <strong class="font-bold"> {{ heading }} </strong>
+    <span class="block pr-2 sm:inline">{{ text }}</span>
+    <span class="absolute top-0 bottom-0 right-0 px-4 py-2">
+        <svg class="inline w-6 h-6 fill-current"
+             role="button"
+             xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 20 20">
+            <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z" />
+        </svg>
+    </span>
+</section>

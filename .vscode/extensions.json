@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "ms-python.black-formatter",
+        "ms-python.isort",
+        "almahdi.code-django",
+        "monosans.djlint",
+        "aaron-bond.better-comments",
+        "gruntfuggly.todo-tree",
+    ]
+}

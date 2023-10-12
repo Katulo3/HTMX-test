@@ -1,0 +1,10 @@
+components:
+
+  #! atomics
+  button: "atomics/button.html"
+  h1: "atomics/h1.html"
+  message: "atomics/message.html"
+  
+  #! containers
+  column: "containers/column.html"
+  section: "containers/section.html"

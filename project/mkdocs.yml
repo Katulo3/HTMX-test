@@ -1,0 +1,53 @@
+site_name: "Ioseph"
+nav:
+  - Inicio: index.md
+  - Cambios: CHANGELOG.md
+  - Commits: commits.md
+  - Apps:
+    - 'Índice': apps/index.md
+    - 'Core': 'apps/core/index.md'
+
+theme:
+  language: es
+  name: "material"
+  palette:
+  - scheme: default 
+    primary: light blue
+    toggle:
+      icon: material/eye
+      name: Cambiar a modo obscuro
+
+  - scheme: slate
+    toggle:
+      icon: material/eye-outline
+      name: Cambiar a modo claro
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.path
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+
+  - pymdownx.tasklist:
+      custom_checkbox: true
+
+extra:
+  generator: false
+
+plugins:
+- search
+- mkdocstrings:
+    handlers:
+      python:
+        options:
+          annotations_path: brief

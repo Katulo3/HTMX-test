@@ -1,0 +1,35 @@
+{% comment %}
+    - id
+    - type
+        - *info
+        - success
+        - warning
+        - danger
+    - text
+    - styles
+    - url
+{% endcomment %}
+
+{% var type=type|default:"info" %}
+
+{% if url %}
+    {% url url as href %}
+{% else %}
+    {% var variant="pointer-events-none" %}
+{% endif %}
+
+{% if type == "info" %}
+    {% var class="text-white bg-blue-500 border-blue-800 rounded-lg hover:bg-blue-800 " %}
+{% elif type == "success" %}
+    {% var class="text-white bg-green-500 border-green-800 hover:bg-green-800" %}
+{% elif type == "warning" %}
+    {% var class="text-white bg-orange-500 border-orange-800 hover:bg-orange-800" %}
+{% elif type == "danger" %}
+    {% var class="text-white bg-red-500 border-red-800 hover:bg-red-800" %}
+{% endif %}
+
+<a {% attrs id href %}
+   role="button"
+   class="inline-block rounded-full px-6 pb-2.5 pt-2.5 text-sm font-medium uppercase leading-normal duration-150 ease-in-out {{ class }} {{ variant }} {{ styles }}">
+    {{ text }}
+</a>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Ioseph · Home
+{% endblock title %}
+
+{% block content %}
+    <main>
+        <section class="container flex flex-col items-center justify-center h-screen mx-auto">
+            <img src="{% static 'core/assets/favicon.svg' %}" alt="" >
+            {% button text="Ioseph" %}
+        </section>
+    </main>
+{% endblock content %}

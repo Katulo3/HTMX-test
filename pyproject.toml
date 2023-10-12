@@ -1,0 +1,62 @@
+[project]
+name = ""
+version = ""
+description = ""
+authors = [
+    {name = "Ioseph",email = "ioseph.dev@gmail.com"},
+]
+requires-python = ">=3.11"
+
+dependencies = [
+    "django",
+    "django-htmx",
+    "python-decouple",
+    "slippers",
+    "django-allauth",
+]
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "djlint",
+    "djhtml",
+    "ruff",
+    "black",
+    "Werkzeug",
+    "django-extensions",
+    "django-debug-toolbar",
+    "django-debug-toolbar-template-profiler",
+]
+
+test = [
+    "pytest-django",
+    "pytest-cov"
+]
+
+doc = [
+    "mkdocs-material",
+    "mkdocstrings[python]"
+]
+
+[tool.pdm.scripts]
+cov = "pytest project --cov=project --cov-report=html"
+cov-view = {shell = "htmlcov\\index.html"}
+docs = "mkdocs serve -a localhost:7000 -f ./project/mkdocs.yml"
+format = "black project"
+indent = "djhtml project/ -t 4"
+linter = "ruff project"
+makemigrations = "project/manage.py makemigrations"
+migrate = "project/manage.py migrate"
+createsuperuser = "python project/manage.py createsuperuser --username='admin' --email='ioseph.dev@gmail.com'"
+server = "project/manage.py runserver"
+test = "pytest project"
+tail = "npx tailwindcss -i project/staticfiles/css/input.css -o project/staticfiles/css/output.css --watch"
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["tests.py", "test_*.py", "*_test.py"]
+
+[tool.black]
+line-length = 120
+
+[tool.ruff]
+line-length = 120
